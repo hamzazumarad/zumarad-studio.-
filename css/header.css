@@ -272,3 +272,202 @@ flex-shrink:0;
     rotate(-45deg);
 
 }
+
+/* =========================================================
+   ZUMARAD STUDIO — PREMIUM DESKTOP NAVBAR V3
+   Desktop-only refinement
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  #header {
+    height: 80px;
+  }
+
+  #header .navbar {
+    height: 80px;
+    padding: 0 28px;
+  }
+
+  #header .nav-container {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 40px;
+  }
+
+  /* ---------- LOGO ---------- */
+
+  #header .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: max-content;
+  }
+
+  #header .logo img {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+  }
+
+  #header .logo span {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: .4px;
+    white-space: nowrap;
+  }
+
+  /* ---------- NAVIGATION ---------- */
+
+  #header .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+
+    margin: 0;
+    padding: 0;
+
+    white-space: nowrap;
+  }
+
+  #header .nav-links a {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 10px 0;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    color: rgba(255,255,255,.78);
+
+    transition:
+      color .25s ease,
+      transform .25s ease;
+  }
+
+  #header .nav-links a:hover,
+  #header .nav-links a.active {
+    color: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  /* Gold underline */
+
+  #header .nav-links a::after {
+    bottom: 2px;
+    left: 50%;
+
+    width: 0;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+  }
+
+  #header .nav-links a:hover::after,
+  #header .nav-links a.active::after {
+    width: 100%;
+  }
+
+  /* ---------- RIGHT SIDE ---------- */
+
+  #header .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+
+    min-width: max-content;
+  }
+
+  #header .btn-primary {
+    min-height: 44px;
+
+    padding: 11px 20px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    box-shadow:
+      0 8px 24px rgba(212,175,55,.16);
+  }
+
+  #header .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 12px 30px rgba(212,175,55,.28);
+  }
+
+  /* ---------- PREMIUM GLASS ---------- */
+
+  #header .navbar {
+    background: rgba(7, 10, 16, .78);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom:
+      1px solid rgba(212,175,55,.12);
+  }
+
+  /* ---------- HIDE MOBILE MENU ---------- */
+
+  #header .menu-btn {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  #header .navbar {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  #header .nav-container {
+    column-gap: 55px;
+  }
+
+  #header .nav-links {
+    gap: 32px;
+  }
+
+  #header .nav-links a {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   VERY WIDE SCREEN
+   ========================================================= */
+
+@media (min-width: 1500px) {
+
+  #header .nav-container {
+    max-width: 1450px;
+  }
+
+  #header .nav-links {
+    gap: 36px;
+  }
+}
