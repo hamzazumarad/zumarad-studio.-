@@ -428,3 +428,25 @@
     }
 
 }
+
+
+/* =========================================
+   FOOTER COPYRIGHT — CENTER
+   ========================================= */
+
+.footer-bottom {
+  text-align: center;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-bottom-inner p {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
