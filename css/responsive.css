@@ -1,0 +1,842 @@
+/* =========================================================
+   RESPONSIVE CSS — ZUMARAD STUDIO V2
+========================================================= */
+
+
+/* =========================================================
+   TABLET — 992px
+========================================================= */
+
+@media (max-width: 992px){
+
+    /* ---------- Navbar ---------- */
+
+    .nav-links{
+        gap:20px;
+    }
+
+    .btn-primary{
+        padding:10px 20px;
+    }
+
+
+    /* ---------- Hero ---------- */
+
+    .hero-container{
+        grid-template-columns:1fr;
+        text-align:center;
+        gap:60px;
+    }
+
+    .hero-content{
+        align-items:center;
+    }
+
+    .hero-description{
+        max-width:700px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-stats{
+        justify-content:center;
+    }
+
+    .hero-image{
+        order:-1;
+    }
+
+
+    /* ---------- Trusted ---------- */
+
+    .tech-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+
+    /* ---------- Services ---------- */
+
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:24px;
+    }
+
+    .service-card{
+        padding:30px;
+    }
+
+    .service-title{
+        font-size:24px;
+    }
+
+
+    /* ---------- Why Choose ---------- */
+
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — 768px
+========================================================= */
+
+@media (max-width: 768px){
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .menu-btn{
+        display:flex;
+    }
+
+    /* IMPORTANT:
+       Sirf navbar ka CTA hide hoga.
+       Contact / Hero / Services buttons hide nahi honge.
+    */
+
+    .nav-right > .btn-primary{
+        display:none;
+    }
+
+    .nav-links{
+
+        position:fixed;
+
+        top:80px;
+        left:-100%;
+
+        width:100%;
+        height:calc(100vh - 80px);
+
+        display:flex;
+
+        flex-direction:column;
+
+        justify-content:center;
+        align-items:center;
+
+        gap:22px;
+
+        background:#0f1117;
+
+        transition:left .4s ease;
+
+        z-index:999;
+
+        overflow-y:auto;
+    }
+
+    .nav-links.active{
+        left:0;
+    }
+
+    body.menu-open{
+        overflow:hidden;
+    }
+
+    .logo span{
+        font-size:1.2rem;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    #hero{
+        padding:120px 0 60px;
+    }
+
+    .hero-container{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        gap:50px;
+    }
+
+    .hero-content{
+
+        order:2;
+
+        align-items:center;
+    }
+
+    .hero-image{
+        order:1;
+    }
+
+    .hero-title{
+        font-size:42px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        width:100%;
+
+        align-items:stretch;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary{
+
+        width:100%;
+
+        justify-content:center;
+
+        text-align:center;
+    }
+
+    .hero-stats{
+
+        display:grid;
+
+        grid-template-columns:repeat(3,1fr);
+
+        gap:12px;
+
+        width:100%;
+
+        margin-top:35px;
+    }
+
+    .stat-card{
+
+        width:100%;
+
+        min-width:0;
+
+        padding:15px;
+    }
+
+    .stat-card h3{
+        font-size:26px;
+    }
+
+    .stat-card p{
+        font-size:13px;
+    }
+
+    .laptop-3d{
+        max-width:320px;
+    }
+
+    .screen{
+        transform:none;
+    }
+
+    .base{
+        width:100%;
+    }
+
+
+    /* ---------- Floating Cards ---------- */
+
+    .floating-card{
+
+        font-size:12px;
+
+        padding:8px 12px;
+    }
+
+    .card-1{
+        left:0;
+        top:-20px;
+    }
+
+    .card-2{
+        right:0;
+        top:25%;
+    }
+
+    .card-3{
+        left:0;
+        bottom:20%;
+    }
+
+    .card-4{
+        right:0;
+        bottom:-15px;
+    }
+
+
+    /* =====================================================
+       TRUSTED
+    ===================================================== */
+
+    #trusted .container{
+
+        padding:90px 0;
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+    }
+
+    .trusted-header{
+        margin-bottom:50px;
+    }
+
+    .trusted-title{
+        font-size:38px;
+    }
+
+    .trusted-description{
+
+        font-size:16px;
+
+        padding:0 20px;
+    }
+
+    .tech-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:18px;
+    }
+
+    .tech-card{
+
+        min-height:105px;
+
+        padding:18px;
+    }
+
+    .tech-card i{
+        font-size:28px;
+    }
+
+    .tech-card h4{
+        font-size:16px;
+    }
+
+
+    /* =====================================================
+       SERVICES
+    ===================================================== */
+
+    .services-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+    .service-card{
+        width:100%;
+        min-width:0;
+    }
+
+
+    /* =====================================================
+       PORTFOLIO
+    ===================================================== */
+
+    .portfolio-grid{
+
+        grid-template-columns:1fr;
+
+        gap:24px;
+    }
+
+    .portfolio-content{
+        padding:22px;
+    }
+
+    .portfolio-content h3{
+        font-size:24px;
+    }
+
+    
+
+    /* =====================================================
+       PROCESS
+    ===================================================== */
+
+    .process-timeline{
+
+        grid-template-columns:1fr;
+
+        gap:24px;
+    }
+
+    .process-card{
+
+        width:100%;
+
+        padding:28px;
+    }
+
+
+    /* =====================================================
+       WHY CHOOSE
+    ===================================================== */
+
+    .why-grid{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+    }
+
+    .why-features{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+    .why-stats{
+        padding:28px;
+    }
+
+
+    /* =====================================================
+       TESTIMONIALS
+    ===================================================== */
+
+    #testimonials{
+        padding:90px 0;
+    }
+
+    .testimonial-slider{
+        margin-top:50px;
+    }
+
+    .testimonial-card{
+        padding:30px 24px;
+    }
+
+    .testimonial-text{
+        font-size:17px;
+    }
+
+
+    /* =====================================================
+       FAQ
+    ===================================================== */
+
+    #faq{
+        padding:80px 0;
+    }
+
+    .faq-question{
+
+        padding:18px 20px;
+
+        font-size:17px;
+    }
+
+    .faq-answer p{
+        padding:0 20px 20px;
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+
+    .contact-container{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+    }
+
+    .contact-form{
+        padding:25px;
+    }
+
+    /* IMPORTANT:
+       Contact button mobile par visible rahega.
+    */
+
+    .contact-form .btn-primary{
+
+        display:flex;
+
+        width:100%;
+
+        justify-content:center;
+
+        align-items:center;
+
+        text-align:center;
+
+        cursor:pointer;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .footer-social{
+        justify-content:center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE — 480px
+========================================================= */
+
+@media (max-width: 480px){
+
+    /* ---------- Container ---------- */
+
+    .container{
+        width:95%;
+    }
+
+
+    /* ---------- Navbar ---------- */
+
+    .logo img{
+
+        width:38px;
+        height:38px;
+    }
+
+    .logo span{
+        font-size:1rem;
+    }
+
+
+    /* ---------- Hero ---------- */
+
+    .hero-title{
+
+        font-size:34px;
+
+        line-height:1.2;
+    }
+
+    .hero-badge{
+
+        font-size:13px;
+
+        padding:8px 16px;
+    }
+
+    .hero-stats{
+
+        gap:8px;
+    }
+
+    .stat-card{
+
+        padding:12px;
+    }
+
+    .stat-card h3{
+        font-size:23px;
+    }
+
+    .stat-card p{
+        font-size:11px;
+    }
+
+
+    /* ---------- Trusted ---------- */
+
+    .trusted-title{
+        font-size:32px;
+    }
+
+    .tech-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:15px;
+    }
+
+
+    /* ---------- Services ---------- */
+
+    .service-card{
+        padding:22px;
+    }
+
+    .service-icon{
+
+        width:54px;
+        height:54px;
+
+        font-size:22px;
+    }
+
+    .service-title{
+        font-size:20px;
+    }
+
+    .service-description{
+        font-size:14px;
+    }
+
+
+    /* ---------- Portfolio ---------- */
+
+    .portfolio-content{
+        padding:20px;
+    }
+
+    .portfolio-content h3{
+        font-size:22px;
+    }
+
+
+    /* ---------- Process ---------- */
+
+    .process-card{
+        padding:24px;
+    }
+
+
+    /* ---------- Why ---------- */
+
+    .why-stats{
+        padding:24px;
+    }
+
+    .why-stats h3{
+        font-size:27px;
+    }
+
+    .why-stat-list{
+        grid-template-columns:1fr;
+    }
+
+
+    /* ---------- Testimonials ---------- */
+
+    .testimonial-card{
+        padding:25px 20px;
+    }
+
+    .testimonial-stars{
+        font-size:17px;
+    }
+
+
+    /* ---------- FAQ ---------- */
+
+    .faq-question{
+        font-size:16px;
+    }
+
+
+    /* ---------- Contact ---------- */
+
+    .contact-form{
+        padding:20px;
+    }
+
+
+    /* ---------- Footer ---------- */
+
+    #footer{
+        padding:60px 0 25px;
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover:none){
+
+    .cursor{
+        display:none;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .why-features{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+
+
+
+
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.nav-links a{
+    color:var(--text);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    white-space:nowrap;
+    transition:.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--gold);
+}
+
+
+@media (min-width:1024px){
+
+    .portfolio-filters{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:12px;
+        margin-bottom:45px;
+    }
+    #hero{
+        min-height:calc(100vh - 80px);
+        padding:100px 0;
+    }
+
+    .hero-container{
+        grid-template-columns:1.05fr .95fr;
+        gap:70px;
+        min-height:auto;
+    }
+
+    .hero-title{
+        font-size:64px;
+        line-height:1.05;
+    }
+
+    .hero-description{
+        max-width:600px;
+        font-size:18px;
+    }
+
+    .hero-image{
+        min-width:0;
+    }
+
+    .laptop-3d{
+        max-width:560px;
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    .portfolio-filters{
+        justify-content:flex-start;
+        gap:10px;
+        padding:0 18px;
+    }
+
+    .portfolio-filter,
+    .filter-btn,
+    .portfolio-filters button{
+        padding:11px 18px;
+        font-size:14px;
+    }
+
+}
+
+
+
+@media (max-width: 900px) {
+
+    #services {
+        padding: 90px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    #services {
+        padding: 75px 0;
+    }
+
+    .services-header {
+        margin-bottom: 40px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .service-card {
+        min-height: auto;
+        padding: 28px;
+    }
+
+}
+
+
+/* ==========================================
+   PORTFOLIO — MOBILE ACTIONS
+========================================== */
+
+@media (max-width: 700px) {
+
+    .portfolio-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .portfolio-buttons a,
+    .portfolio-buttons button {
+        flex: 1;
+        min-width: 0;
+        min-height: 44px;
+        padding: 0 12px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+}

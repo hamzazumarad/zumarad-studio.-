@@ -1,0 +1,349 @@
+/* =========================
+   TESTIMONIALS
+========================= */
+
+.testimonials-section {
+    position: relative;
+    width: 100%;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.testimonials-section .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   TESTIMONIAL SLIDER
+========================= */
+
+.testimonials-grid {
+    position: relative;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 60px auto 0;
+
+    display: block;
+}
+
+
+/* =========================
+   TESTIMONIAL CARD
+========================= */
+
+.testimonial-card {
+
+    display: none !important;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 32px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.025)
+        );
+
+    border: 1px solid
+        rgba(255,255,255,.09);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.15);
+}
+
+
+/* =========================
+   ACTIVE CARD
+========================= */
+
+.testimonial-card.is-active {
+
+    display: block !important;
+
+    animation:
+        testimonialSlideIn .45s ease both;
+}
+
+
+/* =========================
+   SLIDE ANIMATION
+========================= */
+
+@keyframes testimonialSlideIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================
+   CARD HOVER
+========================= */
+
+.testimonial-card.is-active:hover {
+
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(212,175,55,.4);
+
+    box-shadow:
+        0 20px 50px
+        rgba(212,175,55,.12);
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.testimonial-stars {
+
+    color: var(--gold);
+
+    font-size: 20px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   REVIEW TEXT
+========================= */
+
+.testimonial-text {
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin: 0 0 28px;
+}
+
+
+/* =========================
+   AUTHOR
+========================= */
+
+.testimonial-author {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.testimonial-avatar {
+
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(212,175,55,.12);
+
+    border: 1px solid
+        rgba(212,175,55,.35);
+
+    color: var(--gold);
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   AUTHOR TEXT
+========================= */
+
+.testimonial-author h3 {
+
+    margin: 0 0 4px;
+
+    color: var(--white);
+
+    font-size: 16px;
+}
+
+.testimonial-author span {
+
+    color: var(--text);
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   TESTIMONIAL CONTROLS
+========================= */
+
+.testimonial-controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 35px;
+}
+
+
+/* =========================
+   CONTROL BUTTON
+========================= */
+
+.testimonial-controls button {
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(212,175,55,.35);
+
+    background:
+        rgba(255,255,255,.04);
+
+    color: var(--gold);
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* =========================
+   BUTTON HOVER
+========================= */
+
+.testimonial-controls button:hover {
+
+    background: var(--gold);
+
+    color: #111;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(212,175,55,.2);
+}
+
+
+/* =========================
+   BUTTON ACTIVE
+========================= */
+
+.testimonial-controls button:active {
+
+    transform: scale(.94);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .testimonials-section {
+
+        padding: 70px 0;
+    }
+
+    .testimonials-section .container {
+
+        padding: 0 16px;
+    }
+
+    .testimonials-grid {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-top: 40px;
+    }
+
+    .testimonial-card {
+
+        padding: 24px;
+
+        border-radius: 20px;
+    }
+
+    .testimonial-text {
+
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+    .testimonial-controls {
+
+        margin-top: 25px;
+    }
+
+    .testimonial-controls button {
+
+        width: 48px;
+        height: 48px;
+    }
+
+}

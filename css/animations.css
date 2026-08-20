@@ -1,0 +1,141 @@
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* Left */
+
+.reveal-left{
+
+    opacity:0;
+
+    transform:translateX(-60px);
+
+    transition:.8s ease;
+
+}
+
+.reveal-left.active{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+/* Right */
+
+.reveal-right{
+
+    opacity:0;
+
+    transform:translateX(60px);
+
+    transition:.8s ease;
+
+}
+
+.reveal-right.active{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+/* Zoom */
+
+.reveal-zoom{
+
+    opacity:0;
+
+    transform:scale(.9);
+
+    transition:.8s ease;
+
+}
+
+.reveal-zoom.active{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+/* ===========================
+   PREMIUM SHINE EFFECT
+=========================== */
+
+.tech-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.tech-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-60%;
+
+    width:60px;
+
+    height:260%;
+
+    background:linear-gradient(
+
+        rgba(255,255,255,0),
+
+        rgba(255,255,255,.18),
+
+        rgba(255,255,255,0)
+
+    );
+
+    transform:rotate(25deg);
+
+    animation:techShine 5s linear infinite;
+
+}
+
+@keyframes techShine{
+
+    0%{
+
+        left:-70%;
+
+    }
+
+    100%{
+
+        left:170%;
+
+    }
+
+}

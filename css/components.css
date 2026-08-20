@@ -1,0 +1,259 @@
+/* =========================
+   PRIMARY BUTTON V2
+========================= */
+
+.btn-primary{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    padding:16px 28px;
+
+    color:var(--white);
+    font-weight:600;
+    font-size:16px;
+
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:var(--radius-full);
+
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(var(--glass-blur));
+
+    overflow:hidden;
+    isolation:isolate;
+
+    transition:all var(--transition);
+
+    box-shadow:var(--shadow-sm);
+}
+
+/* Gold Border */
+
+.btn-primary::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(212,175,55,.35),
+        transparent
+    );
+
+    transform:translateX(-150%);
+    transition:transform .8s ease;
+
+    z-index:-1;
+
+}
+
+/* Left Gold Line */
+
+.btn-primary::after{
+
+    content:"";
+
+    width:3px;
+    height:60%;
+
+    background:var(--gold);
+
+    border-radius:20px;
+
+    margin-right:10px;
+
+}
+
+/* Hover */
+
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--gold);
+
+    box-shadow:var(--shadow-gold);
+
+    color:var(--white);
+
+}
+
+.btn-primary:hover::before{
+
+    transform:translateX(150%);
+
+}
+
+/* Active */
+
+.btn-primary:active{
+
+    transform:scale(.97);
+
+}
+
+/* Focus */
+
+.btn-primary:focus-visible{
+
+    outline:2px solid var(--gold);
+
+    outline-offset:4px;
+
+}
+
+
+/* =========================
+   GLASS CARD V2
+========================= */
+
+.glass-card{
+
+    position:relative;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:var(--radius-lg);
+
+    padding:var(--space-32);
+
+    overflow:hidden;
+
+    transition:all var(--transition);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/* Gold Top Border */
+
+.glass-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
+
+    transform:scaleX(0);
+
+    transition:.5s;
+
+}
+
+/* Hover */
+
+.glass-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(212,175,55,.30);
+
+    box-shadow:
+    var(--shadow-lg),
+    var(--shadow-gold);
+
+}
+
+.glass-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.section-header{
+
+    max-width:750px;
+
+    margin:0 auto var(--space-64);
+
+    text-align:center;
+
+}
+
+.section-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 18px;
+
+    background:rgba(212,175,55,.08);
+
+    border:1px solid rgba(212,175,55,.20);
+
+    border-radius:var(--radius-full);
+
+    color:var(--gold);
+
+    font-size:14px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+.section-title{
+
+    margin-top:var(--space-24);
+
+    font-size:48px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    color:var(--white);
+
+}
+
+.section-title span{
+
+    color:var(--gold);
+
+}
+
+.section-description{
+
+    margin-top:var(--space-20);
+
+    color:var(--text);
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}

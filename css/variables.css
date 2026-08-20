@@ -1,0 +1,90 @@
+/* ==========================================
+   ZUMARAD STUDIO V2
+   DESIGN TOKENS
+========================================== */
+
+:root{
+
+/* ========= COLORS ========= */
+
+--bg-primary:#0B0F19;
+--bg-secondary:#141A26;
+--bg-card:#1A2130;
+--glass:rgba(255,255,255,.05);
+
+--gold:#D4AF37;
+--gold-light:#E6C14A;
+--gold-dark:#A88418;
+
+--white:#FFFFFF;
+--text:#B8C0CC;
+--text-light:#8E98A8;
+
+--border:rgba(255,255,255,.08);
+
+
+/* ========= CONTAINER ========= */
+
+--container:1200px;
+
+
+/* ========= SPACING ========= */
+
+--space-4:4px;
+--space-8:8px;
+--space-12:12px;
+--space-16:16px;
+--space-20:20px;
+--space-24:24px;
+--space-32:32px;
+--space-40:40px;
+--space-48:48px;
+--space-64:64px;
+--space-80:80px;
+--space-96:96px;
+--space-120:120px;
+
+
+/* ========= RADIUS ========= */
+
+--radius-sm:8px;
+--radius-md:12px;
+--radius-lg:20px;
+--radius-xl:30px;
+--radius-full:999px;
+
+
+/* ========= SHADOW ========= */
+
+--shadow-sm:0 4px 12px rgba(0,0,0,.20);
+--shadow-md:0 12px 30px rgba(0,0,0,.30);
+--shadow-lg:0 25px 60px rgba(0,0,0,.45);
+--shadow-gold:0 0 35px rgba(212,175,55,.25);
+
+
+/* ========= GLASS ========= */
+
+--glass-blur:20px;
+
+
+/* ========= TRANSITION ========= */
+
+--transition-fast:.2s ease;
+--transition:.35s ease;
+--transition-slow:.6s ease;
+
+
+/* ========= Z INDEX ========= */
+
+--z-navbar:1000;
+--z-menu:999;
+--z-modal:1100;
+--z-loader:9999;
+
+}
+
+#portfolio{
+    position:relative;
+    padding:120px 0;
+    background:var(--bg-primary);
+}

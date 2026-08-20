@@ -1,0 +1,274 @@
+/* =========================
+   HEADER
+========================= */
+
+#header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+}
+
+/* =========================
+   NAVBAR V2
+========================= */
+
+.navbar{
+    width:100%;
+    height:80px;
+
+    display:flex;
+    align-items:center;
+
+    background:rgba(11,15,25,.72);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(212,175,55,.08);
+
+    transition:
+    background var(--transition),
+    height var(--transition),
+    box-shadow var(--transition);
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.nav-container{
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    transition:var(--transition);
+
+}
+
+.logo img{
+
+width:48px;
+height:48px;
+
+border-radius:12px;
+
+object-fit:cover;
+
+flex-shrink:0;
+
+}
+
+.logo span{
+    font-size:1.5rem;
+    font-weight:700;
+    letter-spacing:.5px;
+    white-space:nowrap;
+}
+
+/* Hover */
+
+.logo:hover{
+    opacity:.9;
+}
+
+.logo:hover img{
+
+    transform:rotate(-5deg) scale(1.08);
+
+}
+
+/* =========================
+   DESKTOP NAVIGATION
+========================= */
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:#d4af37;
+    transition:.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--gold);
+}
+
+/* =========================
+   NAV RIGHT
+========================= */
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+/* =========================
+   CTA BUTTON
+========================= */
+
+.btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 28px;
+
+    background:#d4af37;
+    color:#0f1117;
+
+    font-size:15px;
+    font-weight:600;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    transition:all .3s ease;
+}
+
+/* Hover */
+
+.btn-primary:hover{
+
+    background:#e6c14a;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 25px rgba(212,175,55,.35);
+
+}
+
+/* Active */
+
+.btn-primary:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menu-btn{
+
+    display:none;
+
+    width:48px;
+    height:48px;
+
+    border:none;
+    background:transparent;
+
+    cursor:pointer;
+
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:6px;
+
+}
+
+/* Menu Lines */
+
+.menu-btn span{
+
+    width:28px;
+    height:3px;
+
+    background:#ffffff;
+
+    border-radius:50px;
+
+    transition:all .3s ease;
+
+}
+
+/* Hover */
+
+.menu-btn:hover span{
+
+    background:#d4af37;
+
+}
+
+
+/* =========================
+   STICKY NAVBAR
+========================= */
+
+#header{
+    transition:all .3s ease;
+}
+
+#header.sticky .navbar{
+
+    height:72px;
+
+    background:rgba(11,15,25,.90);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+    border-bottom:1px solid rgba(212,175,55,.15);
+
+}
+
+/* =========================
+   MENU ACTIVE
+========================= */
+
+.menu-btn.active span:nth-child(1){
+
+    transform:
+    translateY(9px)
+    rotate(45deg);
+
+}
+
+.menu-btn.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+.menu-btn.active span:nth-child(3){
+
+    transform:
+    translateY(-9px)
+    rotate(-45deg);
+
+}

@@ -1,0 +1,153 @@
+/* ==========================================
+   ZUMARAD STUDIO V2
+   STYLE SHEET
+========================================== */
+@import url("reset.css");
+@import url("variables.css");
+@import url("base.css");
+@import url("components.css");
+@import url("header.css");
+@import url("hero.css");
+@import url("trusted.css");
+@import url("services.css");
+@import url("portfolio.css");
+@import url("process.css");
+@import url("why-choose.css");
+@import url("testimonials.css");
+@import url("faq.css");
+@import url("contact.css");
+@import url("footer.css");
+@import url("animations.css");
+@import url("utilities.css");
+@import url("responsive.css");
+@import url("cursor.css");
+@import url("loader.css");
+@import url("search.css");
+@import url("cta.css");
+
+#backToTop{
+position:fixed;
+right:30px;
+bottom:30px;
+width:55px;
+height:55px;
+border-radius:50%;
+background:var(--gold);
+color:#000;
+display:none;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+z-index:999;
+transition:.3s;
+}
+
+#backToTop.show{
+display:flex;
+}
+
+/* ===========================
+   PREMIUM TECH CARD EFFECT
+=========================== */
+.tech-card{
+    position:relative;
+    overflow:hidden;
+    transition:.4s ease;
+}
+
+.tech-card::before{
+    content:"";
+    position:absolute;
+    top:-120%;
+    left:-120%;
+    width:250%;
+    height:250%;
+    background:linear-gradient(45deg, transparent, rgba(212,175,55,.12), transparent);
+    transform:rotate(25deg);
+    transition:.8s;
+}
+
+.tech-card:hover::before{
+    top:-40%;
+    left:-40%;
+}
+
+.tech-card:hover{
+    transform:translateY(-10px);
+    border-color:#d4af37;
+    box-shadow:0 20px 50px rgba(212,175,55,.18);
+}
+
+.tech-card i{
+    transition:.4s;
+}
+
+.tech-card:hover i{
+    transform:scale(1.2) rotate(8deg);
+    color:#ffd95b;
+}
+
+/* Shared rendering stability */
+.portfolio-card{
+    transform-style:preserve-3d;
+}
+
+html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+img, video{
+    max-width:100%;
+}
+
+/* Prevent decorative layers from blocking interaction */
+.hero button,
+.hero a,
+.hero-buttons button,
+.hero-buttons a{
+    position:relative;
+    z-index:20;
+    pointer-events:auto;
+}
+
+.progress-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0;
+    height:3px;
+    background:var(--gold);
+    z-index:10001;
+    transition:width .08s linear;
+    pointer-events:none;
+}
+
+/* Single ambient background layer */
+body{
+    background:#080b14;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(212,175,55,.16), transparent 26%),
+        radial-gradient(circle at 92% 18%, rgba(95,55,190,.16), transparent 28%),
+        radial-gradient(circle at 12% 78%, rgba(0,145,125,.12), transparent 27%),
+        radial-gradient(circle at 88% 82%, rgba(150,45,100,.12), transparent 28%);
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    background:linear-gradient(135deg, rgba(8,11,20,.72), rgba(8,11,20,.35), rgba(8,11,20,.72));
+}

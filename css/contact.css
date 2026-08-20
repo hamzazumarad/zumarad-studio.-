@@ -1,0 +1,405 @@
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section{
+    position:relative;
+    width:100%;
+    padding:100px 0;
+    overflow:hidden;
+}
+
+.contact-section .container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+    box-sizing:border-box;
+}
+
+
+/* =========================
+   CONTACT GRID
+========================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:50px;
+    margin-top:60px;
+}
+
+
+/* =========================
+   CONTACT INFO
+========================= */
+
+.contact-info{
+    padding:35px;
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid
+        rgba(255,255,255,.09);
+}
+
+.contact-info h3{
+    margin:0 0 16px;
+
+    color:var(--white);
+
+    font-size:28px;
+}
+
+.contact-info > p{
+    color:var(--text);
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+
+/* =========================
+   CONTACT ITEM
+========================= */
+
+.contact-item{
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:22px;
+}
+
+.contact-icon{
+    width:48px;
+    height:48px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:
+        rgba(212,175,55,.08);
+
+    border:1px solid
+        rgba(212,175,55,.2);
+
+    color:var(--gold);
+
+    font-size:18px;
+}
+
+.contact-item span{
+    display:block;
+
+    color:var(--text);
+
+    font-size:12px;
+
+    margin-bottom:4px;
+}
+
+.contact-item a,
+.contact-item strong{
+    color:var(--white);
+
+    font-size:15px;
+
+    text-decoration:none;
+}
+
+.contact-item a:hover{
+    color:var(--gold);
+}
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-form{
+    padding:35px;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid
+        rgba(255,255,255,.09);
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+
+    color:var(--white);
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    border:1px solid
+        rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:var(--white);
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    outline:none;
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.form-group textarea{
+    resize:vertical;
+    min-height:130px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:rgba(255,255,255,.4);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(212,175,55,.08);
+}
+
+.form-group select option{
+    background:#11151d;
+    color:#fff;
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.contact-submit{
+
+    width:100%;
+
+    min-height:54px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--gold);
+
+    color:#111;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.contact-submit:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(212,175,55,.25);
+}
+
+.contact-submit i{
+    transition:.3s ease;
+}
+
+.contact-submit:hover i{
+    transform:translateX(5px);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .contact-section{
+        padding:70px 0;
+    }
+
+    .contact-section .container{
+        padding:0 16px;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+        margin-top:40px;
+    }
+
+    .contact-info,
+    .contact-form{
+        padding:25px;
+        border-radius:20px;
+    }
+
+    .contact-info h3{
+        font-size:24px;
+    }
+
+}
+
+
+/* =========================
+   CONTACT ACTION BUTTONS
+========================= */
+
+.contact-actions{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-top:8px;
+}
+
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+
+.contact-whatsapp{
+
+    width:100%;
+    min-height:54px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.035);
+
+    color:var(--white);
+
+    font-family:inherit;
+    font-size:15px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        color .3s ease;
+}
+
+
+.contact-whatsapp i{
+    font-size:19px;
+    color:#25D366;
+
+    transition:.3s ease;
+}
+
+
+.contact-whatsapp:hover{
+
+    transform:translateY(-3px);
+
+    background:rgba(37,211,102,.08);
+
+    border-color:rgba(37,211,102,.35);
+
+    box-shadow:
+        0 12px 30px
+        rgba(37,211,102,.12);
+}
+
+
+.contact-whatsapp:hover i{
+    transform:scale(1.12);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .contact-actions{
+        gap:12px;
+    }
+
+    .contact-submit,
+    .contact-whatsapp{
+        min-height:56px;
+        font-size:15px;
+    }
+
+}

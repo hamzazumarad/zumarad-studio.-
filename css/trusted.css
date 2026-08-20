@@ -1,0 +1,241 @@
+/* ==========================================
+   TRUSTED SECTION
+========================================== */
+
+#trusted{
+    padding:120px 0;
+    position:relative;
+}
+
+.trusted-header{
+    max-width:700px;
+    margin:0 auto 70px;
+    text-align:center;
+}
+
+.trusted-badge{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 28px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(212,175,55,.25);
+
+    background:rgba(212,175,55,.06);
+
+    color:#D4AF37;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    margin-bottom:22px;
+
+}
+
+.trusted-title{
+
+    font-size:56px;
+
+    line-height:1.15;
+
+    font-weight:800;
+
+    color:#fff;
+
+    margin-bottom:22px;
+
+}
+
+.trusted-title span{
+
+    color:#D4AF37;
+
+}
+
+.trusted-description{
+
+    max-width:620px;
+
+    margin:auto;
+
+    color:#9c9c9c;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+.tech-card{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:16px;
+
+    min-height:170px;
+
+    padding:32px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:var(--radius-lg);
+
+    backdrop-filter:blur(20px);
+
+    transition:all var(--transition);
+
+    overflow:hidden;
+
+}
+
+.tech-card i{
+
+    font-size:46px;
+
+    color:var(--gold);
+
+    transition:var(--transition);
+
+}
+
+.tech-card h4{
+
+    font-size:18px;
+
+    color:var(--white);
+
+    font-weight:600;
+
+}
+.tech-card{
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        rgba(212,175,55,.10),
+        transparent,
+        rgba(212,175,55,.05)
+    );
+    opacity:0;
+    transition:.4s;
+}
+
+.tech-card:hover::before{
+    opacity:1;
+}
+
+.tech-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(212,175,55,.25);
+
+    box-shadow:
+    var(--shadow-lg),
+    var(--shadow-gold);
+
+}
+
+.tech-card:hover i{
+
+    transform:scale(1.15);
+
+}
+
+/* ======================
+      GRID
+====================== */
+
+/* =========================
+   TECH GRID
+========================= */
+
+.tech-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:var(--space-24);
+
+    margin-top:var(--space-48);
+
+}
+.tech-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#D4AF37;
+
+    box-shadow:0 20px 45px rgba(212,175,55,.18);
+
+}
+
+.tech-card:hover i{
+
+    transform:scale(1.15) rotate(-8deg);
+
+}
+
+
+#trusted{
+    position:relative;
+    overflow:hidden;
+}
+
+#trusted::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:rgba(212,175,55,.05);
+    filter:blur(120px);
+    top:-120px;
+    right:-120px;
+    z-index:-1;
+}
+
+.tech-card img{
+
+    width:48px;
+
+    height:48px;
+
+    object-fit:contain;
+
+    margin-bottom:18px;
+
+    transition:.35s;
+
+}
+
+.tech-card:hover img{
+
+    transform:scale(1.15);
+
+}
+
+

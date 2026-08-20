@@ -1,0 +1,122 @@
+.process-timeline{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:70px;
+
+}
+
+.process-card{
+
+    position:relative;
+
+    padding:38px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    transition:.4s ease;
+
+}
+
+.process-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(212,175,55,.30);
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.30),
+
+        0 0 35px rgba(212,175,55,.15);
+
+}
+
+
+.step-number{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    color:rgba(212,175,55,.15);
+
+    margin-bottom:15px;
+
+    opacity:.12;
+
+
+}
+
+
+
+/* =========================
+   PROCESS ICON
+========================= */
+
+.process-icon{
+
+    width:64px;
+    height:64px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:22px;
+
+    border-radius:18px;
+
+    background:rgba(212,175,55,.08);
+
+    border:1px solid rgba(212,175,55,.18);
+
+    color:var(--gold);
+
+    font-size:25px;
+
+    transition:.35s ease;
+}
+
+.process-card:hover .process-icon{
+
+    transform:
+        translateY(-4px)
+        rotate(-6deg)
+        scale(1.08);
+
+    background:rgba(212,175,55,.14);
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 10px 30px rgba(212,175,55,.18);
+}
+
+
+.process-card h3{
+
+    color:var(--white);
+
+    font-size:24px;
+
+    margin-bottom:14px;
+}
+
+
+.process-card p{
+
+    color:var(--text);
+
+    line-height:1.8;
+}
