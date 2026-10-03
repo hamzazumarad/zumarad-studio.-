@@ -1,129 +1,71 @@
 // =========================
-// PORTFOLIO LIGHTBOX
+// ZUMARAD STUDIO — PROJECT STORY MODAL
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("projectModal");
+    if (!modal || typeof portfolioProjects === "undefined") return;
 
-    const lightbox =
-        document.getElementById("portfolioLightbox");
+    const image = document.getElementById("projectModalImage");
+    const badge = document.getElementById("projectModalBadge");
+    const title = document.getElementById("projectModalTitle");
+    const description = document.getElementById("projectModalDescription");
+    const story = document.getElementById("projectModalStory");
+    const challenge = document.getElementById("projectModalChallenge");
+    const approach = document.getElementById("projectModalApproach");
+    const built = document.getElementById("projectModalBuilt");
+    const gallery = document.getElementById("projectModalGallery");
 
-    const image =
-        lightbox?.querySelector(".lightbox-image");
+    const open = (id) => {
+        const project = portfolioProjects.find(item => item.id === id);
+        if (!project) return;
 
-    const closeButton =
-        lightbox?.querySelector(".lightbox-close");
+        badge.textContent = project.badge;
+        title.textContent = project.title;
+        description.textContent = project.description;
+        story.textContent = project.story;
+        challenge.textContent = project.challenge;
+        approach.textContent = project.approach;
+        image.src = project.image;
+        image.alt = `${project.title} project screenshot`;
+        built.innerHTML = project.built.map(item => `<span>${item}</span>`).join("");
+        gallery.innerHTML = (project.gallery || [project.image]).map((src, index) => `
+            <button type="button" class="project-gallery-item ${index === 0 ? "active" : ""}" data-src="${src}" aria-label="View project screenshot ${index + 1}">
+                <img src="${src}" alt="${project.title} screenshot ${index + 1}" loading="lazy">
+            </button>
+        `).join("");
 
-    if (!lightbox || !image || !closeButton) {
-        return;
-    }
-
-    // =========================
-    // CLOSE LIGHTBOX
-    // =========================
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("project-modal-open");
+        document.querySelector(".project-modal-close")?.focus();
+    };
 
     const close = () => {
-
-        lightbox.classList.remove("active");
-
-        document.body.classList.remove(
-            "lightbox-open"
-        );
-
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("project-modal-open");
         image.removeAttribute("src");
-
-        image.removeAttribute("alt");
     };
 
-    // =========================
-    // OPEN LIGHTBOX
-    // =========================
-
-    const open = (src, alt) => {
-
-        if (!src) return;
-
-        image.src = src;
-
-        image.alt =
-            alt || "Portfolio Preview";
-
-        lightbox.classList.add("active");
-
-        document.body.classList.add(
-            "lightbox-open"
-        );
-    };
-
-    // =========================
-    // PORTFOLIO PREVIEW CLICK
-    // =========================
-
-    document.addEventListener("click", (event) => {
-
-        const target = event.target;
-
-        if (!(target instanceof Element)) {
+    document.addEventListener("click", event => {
+        const trigger = event.target.closest("[data-project-id]");
+        if (trigger) {
+            open(trigger.dataset.projectId);
             return;
         }
-
-        const preview =
-            target.closest(
-                ".portfolio-preview, .portfolio-preview-btn"
-            );
-
-        if (preview) {
-
-            const src =
-                preview.dataset.image ||
-                preview.getAttribute("src") ||
-                "";
-
-            const alt =
-                preview.dataset.title ||
-                preview.getAttribute("alt") ||
-                "Portfolio Preview";
-
-            if (src) {
-                open(src, alt);
-            }
-
-            return;
+        if (event.target.closest("[data-modal-close]")) close();
+        const galleryItem = event.target.closest(".project-gallery-item");
+        if (galleryItem) {
+            image.src = galleryItem.dataset.src;
+            document.querySelectorAll(".project-gallery-item").forEach(item => item.classList.remove("active"));
+            galleryItem.classList.add("active");
         }
-
-        // =========================
-        // CLOSE BUTTON
-        // =========================
-
-        if (
-            target.closest(".lightbox-close")
-        ) {
-            close();
-            return;
-        }
-
-        // =========================
-        // OVERLAY CLICK
-        // =========================
-
-        if (target === lightbox) {
-            close();
-        }
-
     });
 
-    // =========================
-    // ESCAPE KEY
-    // =========================
-
-    document.addEventListener("keydown", (event) => {
-
-        if (
-            event.key === "Escape" &&
-            lightbox.classList.contains("active")
-        ) {
-            close();
-        }
-
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && modal.classList.contains("active")) close();
     });
 
+    document.querySelector("[data-modal-contact]")?.addEventListener("click", close);
 });

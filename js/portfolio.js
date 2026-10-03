@@ -1,193 +1,150 @@
-// =========================
-// DATA-DRIVEN PORTFOLIO
-// =========================
+// =========================================================
+// ZUMARAD STUDIO — REAL PORTFOLIO UI
+// =========================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    const portfolioGrid = document.querySelector(".portfolio-grid");
+    const grid = document.querySelector(".portfolio-grid");
+    const empty = document.querySelector(".portfolio-empty");
+    const modal = document.querySelector("#projectModal");
 
-    if (!portfolioGrid) return;
+    if (!grid || !Array.isArray(window.portfolioProjects)) return;
 
-    if (
-        typeof portfolioProjects === "undefined" ||
-        !Array.isArray(portfolioProjects)
-    ) {
-        console.error("Portfolio data not found.");
-        return;
-    }
+    const projects = window.portfolioProjects;
+    const filterButtons = [...document.querySelectorAll(".filter-btn")];
 
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const searchInput = document.getElementById("portfolioSearch");
+    const escapeHTML = (value = "") =>
+        String(value).replace(/[&<>'"]/g, char => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            "'": "&#039;",
+            '"': "&quot;"
+        }[char]));
 
-    /**
-     * @param {{
-     *   category: string,
-     *   title: string,
-     *   image: string,
-     *   badge: string,
-     *   description: string,
-     *   tech: string[]
-     * }} project
-     */
-    function createPortfolioCard(project) {
+    const createCard = (project, index) => {
         const card = document.createElement("article");
-
-        card.className = "portfolio-card active";
+        card.className = "portfolio-card reveal";
         card.dataset.category = project.category;
-        card.dataset.title = project.title.toLowerCase();
 
         card.innerHTML = `
-            <div class="portfolio-image">
-
-                <div class="browser-frame">
-                    <div class="browser-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
-                </div>
-
-                <img
-                    src="${project.image}"
-                    alt="${project.title}"
-                    class="portfolio-preview"
-                    loading="eager"
-                    onerror="this.style.display='none'; console.error('Portfolio image failed:', this.src);"
-                >
-
-                <span class="portfolio-badge">
-                    ${project.badge}
+            <button class="portfolio-image portfolio-story-trigger" type="button"
+                    data-project-id="${escapeHTML(project.id)}"
+                    aria-label="Open ${escapeHTML(project.title)} project story">
+                <span class="portfolio-image-shine"></span>
+                <img src="${escapeHTML(project.image)}"
+                     alt="${escapeHTML(project.title)} project screenshot"
+                     loading="lazy">
+                <span class="portfolio-badge">${escapeHTML(project.badge)}</span>
+                <span class="portfolio-image-action">
+                    View Project <i class="fas fa-arrow-up-right-from-square"></i>
                 </span>
-
-            </div>
+            </button>
 
             <div class="portfolio-content">
-
-                <h3>${project.title}</h3>
-
-                <p>${project.description}</p>
-
-                <div class="tech-stack">
-                    ${project.tech
-                        .map((tech) => `<span>${tech}</span>`)
-                        .join("")}
+                <div class="portfolio-meta">
+                    <span>${String(index + 1).padStart(2, "0")}</span>
+                    <span>${escapeHTML(project.badge)}</span>
                 </div>
-
-                <div class="portfolio-buttons">
-
-                    <button
-                        type="button"
-                        class="btn-primary portfolio-preview-btn"
-                        data-image="${project.image}"
-                        data-title="${project.title}"
-                    >
-                        Preview
-                    </button>
-
-                    <a
-                        href="#contact"
-                        class="btn-secondary portfolio-case-btn"
-                        data-project="${project.title}"
-                    >
-                        Discuss Project
-                    </a>
-
-                </div>
-
+                <h3>${escapeHTML(project.title)}</h3>
+                <p>${escapeHTML(project.description)}</p>
+                <button class="portfolio-story-btn" type="button"
+                        data-project-id="${escapeHTML(project.id)}">
+                    Read Project Story <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         `;
-
         return card;
-    }
+    };
 
-    // =========================
-    // RENDER PROJECTS
-    // =========================
-
-    portfolioGrid.replaceChildren();
-
-    portfolioProjects.forEach((project) => {
-        portfolioGrid.appendChild(
-            createPortfolioCard(project)
+    const render = (category = "all") => {
+        const visible = projects.filter(
+            project => category === "all" || project.category === category
         );
+
+        grid.replaceChildren(
+            ...visible.map((project, index) => createCard(project, index))
+        );
+
+        if (empty) empty.hidden = visible.length !== 0;
+    };
+
+    const openProject = id => {
+        const project = projects.find(item => item.id === id);
+        if (!project || !modal) return;
+
+        document.querySelector("#projectModalHero").src = project.image;
+        document.querySelector("#projectModalHero").alt = `${project.title} project screenshot`;
+        document.querySelector("#projectModalBadge").textContent = project.badge;
+        document.querySelector("#projectModalTitle").textContent = project.title;
+        document.querySelector("#projectModalDescription").textContent = project.description;
+        document.querySelector("#projectModalStory").textContent = project.story;
+        document.querySelector("#projectModalChallenge").textContent = project.challenge;
+        document.querySelector("#projectModalApproach").textContent = project.approach;
+
+        const built = document.querySelector("#projectModalBuilt");
+        built.innerHTML = project.built
+            .map(item => `<span>${escapeHTML(item)}</span>`)
+            .join("");
+
+        const gallery = document.querySelector("#projectModalGallery");
+        gallery.innerHTML = project.gallery
+            .map((src, i) => `
+                <button type="button" class="project-gallery-item"
+                        data-image="${escapeHTML(src)}"
+                        data-title="${escapeHTML(project.title)} screenshot ${i + 1}">
+                    <img src="${escapeHTML(src)}"
+                         alt="${escapeHTML(project.title)} screenshot ${i + 1}"
+                         loading="lazy">
+                </button>
+            `)
+            .join("");
+
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("project-modal-open");
+    };
+
+    const closeProject = () => {
+        if (!modal) return;
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("project-modal-open");
+    };
+
+    grid.addEventListener("click", event => {
+        const trigger = event.target.closest("[data-project-id]");
+        if (trigger) openProject(trigger.dataset.projectId);
     });
 
-    // =========================
-    // FILTER SYSTEM
-    // =========================
+    modal?.addEventListener("click", event => {
+        if (event.target.closest("[data-close-project]")) {
+            closeProject();
+            return;
+        }
 
-    function applyFilters() {
-        const activeButton =
-            document.querySelector(".filter-btn.active");
-
-        const category =
-            activeButton?.dataset.filter || "all";
-
-        const query =
-            (searchInput?.value || "")
-                .trim()
-                .toLowerCase();
-
-        portfolioGrid
-            .querySelectorAll(".portfolio-card")
-            .forEach((card) => {
-
-                const matchesCategory =
-                    category === "all" ||
-                    card.dataset.category === category;
-
-                const matchesSearch =
-                    !query ||
-                    card.innerText
-                        .toLowerCase()
-                        .includes(query);
-
-                card.style.display =
-                    matchesCategory && matchesSearch
-                        ? ""
-                        : "none";
+        const galleryItem = event.target.closest(".project-gallery-item");
+        if (galleryItem) {
+            const hero = document.querySelector("#projectModalHero");
+            hero.src = galleryItem.dataset.image;
+            hero.alt = galleryItem.dataset.title;
+            document.querySelector(".project-modal-hero").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
             });
-    }
+        }
+    });
 
-    // =========================
-    // FILTER BUTTONS
-    // =========================
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeProject();
+    });
 
-    filterButtons.forEach((button) => {
-
+    filterButtons.forEach(button => {
         button.addEventListener("click", () => {
-
-            filterButtons.forEach((btn) => {
-                btn.classList.remove("active");
-            });
-
+            filterButtons.forEach(item => item.classList.remove("active"));
             button.classList.add("active");
-
-            applyFilters();
+            render(button.dataset.filter || "all");
         });
-
     });
 
-    // =========================
-    // SEARCH
-    // =========================
-
-    if (searchInput) {
-        searchInput.addEventListener(
-            "input",
-            applyFilters
-        );
-    }
-
-    // =========================
-    // GLOBAL ACCESS
-    // =========================
-
-    window.applyPortfolioFilters = applyFilters;
-
-    // Initial render
-    applyFilters();
-
-    console.log(
-        `Rendered ${portfolioProjects.length} portfolio projects.`
-    );
+    render();
 });
